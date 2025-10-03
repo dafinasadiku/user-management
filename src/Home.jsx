@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import TextField from '@mui/material/TextField';
+import {useNavigate} from 'react-router-dom';
+
 
 
 function Home() {
   const [users, setUsers] = useState([]);
   const[search, setSearch] = useState("");
-  
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -17,6 +19,10 @@ function Home() {
   const filteredUsers = users.filter((u) =>
     u.name.toLowerCase().includes(search.toLowerCase())
   );
+
+  const handleRowClick = (id) =>{
+    navigate(`/user/${id}`);
+  };
 
   return (
     <div>
@@ -42,7 +48,7 @@ function Home() {
           </thead>
           <tbody>
             {filteredUsers.map((u) => (
-              <tr>
+              <tr key={u.id} onClick={() => handleRowClick(u.id)} style={{cursor:"pointer"}}>
                 <td>{u.name}</td>
                 <td>{u.email}</td>
                 <td>{u.company?.name}</td>

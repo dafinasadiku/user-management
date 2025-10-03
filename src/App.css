@@ -9,6 +9,7 @@ table{
 
 #title {
   background-color: rgb(2, 2, 91);
+  margin-top: 40px;
   margin-left: 10%;
   margin-right: 10%;
   height: 70px;            /* enough height for vertical centering */
