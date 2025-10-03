@@ -2,3 +2,71 @@
   background-color: white;
 
 }
+
+table{
+  background-color: white;
+}
+
+#title {
+  background-color: rgb(2, 2, 91);
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 70px;            /* enough height for vertical centering */
+  display: flex;             /* make container flex */
+  justify-content: center;   /* horizontal center */
+  align-items: center;       /* vertical center */
+  border-radius: 10px 10px 10px 10px; 
+}
+
+#title h1 {
+  font-size: 30px;           /* larger title */
+  color: white;
+  margin: 0;                 /* remove default margin */
+  font-family: 'Inter', sans-serif;
+}
+
+.table-container{
+  margin: 20px 10%;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+thead {
+  background-color: #fafafa;
+  text-align: left;
+}
+
+th, td {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+  padding-left: 40px;
+
+}
+
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.search{
+  margin-left: 10%;
+  margin-right:40%;
+  margin-top: 10px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+body{
+  font-family: 'Inter', sans-serif;
+
+}
