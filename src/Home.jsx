@@ -1,31 +1,37 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 
 function Home() {
-    const[users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
 
-
-
-
-useEffect(() =>{
+  useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
-    .then((res) => res.json())
-    .then((data) => setUsers(data));
-}, []);
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
 
-
-return(
+  return (
     <div>
-        <h1>User Lists</h1>
-        <ul>
-            {users.map((u) =>(
-                <li>
-                    {u.name} - {u.email} - {u.company?.name}
-                </li>
-            ))}
-        </ul>
+      <h1>User Lists</h1>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Company</th>
+          </tr>
+        </thead>
+        <tbody>
+           {users.map((u) => (
+            <tr>
+                <td>{u.name}</td>
+                <td>{u.email}</td>
+                <td>{u.company?.name}</td>
+            </tr>
+        ))}
+        </tbody>
+      </table>
     </div>
-);
+  );
 }
-
 
 export default Home;
