@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import TextField from '@mui/material/TextField';
 import {useNavigate} from 'react-router-dom';
-
+import { fetchUsers } from './api';
 
 
 function Home() {
@@ -16,9 +16,12 @@ function Home() {
   const[error, setError] = useState("");
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then((data) => setUsers(data));
+    fetchUsers()
+      // .then((res) => res.json())
+      // .then((data) => setUsers(data));
+   .then(data => setUsers(data))
+    .catch(err => console.error(err));
+
   }, []);
 
   const filteredUsers = users.filter((u) =>
@@ -33,6 +36,11 @@ function Home() {
     e.preventDefault();
     if(!newUser.name || !newUser.email){
       setError("Name and email are required!");
+      return;
+    }
+
+    if (!newUser.email.includes("@") || !newUser.email.includes(".")){
+      alert("Please enter a valid email address.");
       return;
     }
 

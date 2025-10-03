@@ -1,14 +1,17 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { fetchUserById } from './api';
 
 function UserDetails() {
   const { id } = useParams();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
-      .then((res) => res.json())
-      .then((data) => setUser(data));
+    fetchUserById(id)
+    //   .then((res) => res.json())
+    //   .then((data) => setUser(data));
+    .then(data => setUser(data))
+    .catch(err => console.error(err));
   }, [id]);
 
   if (!user) return <p>Loading...</p>;
