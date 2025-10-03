@@ -19,7 +19,7 @@ return(
         <ul>
             {users.map((u) =>(
                 <li>
-                    {u.name}
+                    {u.name} - {u.email} - {u.company?.name}
                 </li>
             ))}
         </ul>
