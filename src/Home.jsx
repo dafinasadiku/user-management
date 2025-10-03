@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function Home() {
+function Home({search}) {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -8,6 +8,10 @@ function Home() {
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);
+
+    const filteredUsers = users.filter((u) =>
+    u.name.toLowerCase().includes(search.toLowerCase())
+);
 
   return (
     <div>
@@ -21,7 +25,7 @@ function Home() {
           </tr>
         </thead>
         <tbody>
-           {users.map((u) => (
+           {filteredUsers.map((u) => (
             <tr>
                 <td>{u.name}</td>
                 <td>{u.email}</td>
