@@ -71,3 +71,22 @@ body{
   font-family: 'Inter', sans-serif;
 
 }
+
+.newUserForm{
+  margin-left: 10%;
+}
+
+.newUserButton{
+  padding:17px;
+  margin-left: 10px;
+  background-color: rgb(107, 107, 227);
+  border-radius: 10px;
+  border-color: white;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  font-size: 18px;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  font-weight: bold;
+
+  
+}

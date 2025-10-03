@@ -9,6 +9,11 @@ function Home() {
   const [users, setUsers] = useState([]);
   const[search, setSearch] = useState("");
   const navigate = useNavigate();
+  const [newUser, setNewUser] = useState({name: "", email: ""});
+  const handleInputChange = (e) => {
+    setNewUser({ ...newUser, [e.target.name]: e.target.value});
+  };
+  const[error, setError] = useState("");
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -24,6 +29,26 @@ function Home() {
     navigate(`/user/${id}`);
   };
 
+  const handleAddUser = (e) => {
+    e.preventDefault();
+    if(!newUser.name || !newUser.email){
+      setError("Name and email are required!");
+      return;
+    }
+
+    const userToAdd = {
+      id: Date.now(),
+      name: newUser.name, 
+      email: newUser.email,
+      company: {name:""},
+    };
+    setUsers([userToAdd, ...users]);
+    setNewUser({name: "", email: ""});
+    setError("");
+
+  };
+
+
   return (
     <div>
       <div
@@ -32,6 +57,29 @@ function Home() {
       >
         <h1>User Management</h1>
       </div>
+
+    <form className="newUserForm" onSubmit={handleAddUser} style={{marginBottom:"20px", marginTop:"10px"}}>
+      <TextField
+        label="Name"
+        name = "name"
+        value={newUser.name}
+        onChange={handleInputChange}
+        required>
+      </TextField>
+
+
+      <TextField
+        label="Email"
+        name = "email"
+        value={newUser.email}
+        onChange={handleInputChange}
+        required>
+      </TextField>
+      <button className="newUserButton" type="submit">
+      + Add User
+      </button>
+       {error && <p style={{ color: "red" }}>{error}</p>}   
+</form>
          <div className="search">
                 <TextField id="textField" variant="outlined" fullWidth label="Search"
                 value={search} onChange={(e) => setSearch(e.target.value)} >
