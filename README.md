@@ -1,16 +1,35 @@
-# React + Vite
+# User Management App
+This is a simple app to manage users where are displayed user names, email and company in a table and you can search and add new users.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Program features
+- See user details by pressing one of the users
+- Search bar filtering by user names
+- Add a new user by filling out name and email text field
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation and Usage:
+### Requirements:
+- Visual Studio Code or another suitable code editor
 
-## React Compiler
+### Steps:
+**1. Clone the repository:**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+    git clone https://github.com/dafinasadiku/user-management.git
 
-## Expanding the ESLint configuration
+**2. Navigate into the project folder:**
+`cd user-management-app`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**3. Install dependencies:**
+`npm install`
+
+**4. Start the development server:**
+`npm run dev`
+
+
+## Usage
+- After following the URL shown in the terminal you will be redirected to the User Management App
+- Use the search bar to filter users by name
+- Click on any user in the table to view additional details about them, such as their address, phone number, and website.
+- Use the Add User form to create a new user
+- You must provide a valid email address (the app checks email format).
+- Once added, the new user appears in the table.
